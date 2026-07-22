@@ -1,13 +1,13 @@
-import Link from 'next/link'
-import ProjectCard from '@/components/ProjectCard'
-import { projects } from '@/lib/projects'
+import Link from "next/link";
+import ProjectCard from "@/components/ProjectCard";
+import { projects } from "@/lib/projects";
 
 const featured = [
-  projects.find((p) => p.category === 'Sport Posters')!,
-  projects.find((p) => p.category === 'Matchday Design')!,
-  projects.find((p) => p.category === 'Social Rebrand')!,
-  projects.find((p) => p.category === 'Player Graphics')!,
-]
+  projects.find((p) => p.category === "Sport Posters")!,
+  projects.find((p) => p.category === "Matchday Design")!,
+  projects.find((p) => p.category === "Social Rebrand")!,
+  projects.find((p) => p.category === "Player Graphics")!,
+];
 
 export default function HomePage() {
   return (
@@ -19,8 +19,8 @@ export default function HomePage() {
           className="absolute inset-0 opacity-[0.03] pointer-events-none"
           style={{
             backgroundImage:
-              'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)',
-            backgroundSize: '60px 60px',
+              "linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)",
+            backgroundSize: "60px 60px",
           }}
         />
 
@@ -29,7 +29,7 @@ export default function HomePage() {
             Creative Designer
           </p>
           <h1 className="font-display text-[clamp(80px,16vw,200px)] leading-[0.9] tracking-wide text-white mb-8">
-            GARBA<br />COLLINS
+            MY PORTFOLIO
           </h1>
           <div className="w-20 h-0.5 bg-[#DC2626] mx-auto mb-8" />
           <p className="text-[#6B7280] font-body text-base md:text-lg max-w-sm mx-auto mb-14 leading-relaxed">
@@ -61,8 +61,12 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto">
           <div className="flex items-end justify-between mb-16">
             <div>
-              <p className="text-[#DC2626] font-body text-xs tracking-[0.4em] uppercase mb-3">Portfolio</p>
-              <h2 className="font-display text-4xl md:text-6xl tracking-wide text-white">SELECTED WORK</h2>
+              <p className="text-[#DC2626] font-body text-xs tracking-[0.4em] uppercase mb-3">
+                Portfolio
+              </p>
+              <h2 className="font-display text-4xl md:text-6xl tracking-wide text-white">
+                SELECTED WORK
+              </h2>
             </div>
             <Link
               href="/work"
@@ -92,7 +96,12 @@ export default function HomePage() {
       {/* Disciplines strip */}
       <section className="py-16 px-6 border-y border-white/5 bg-[#181717]/40">
         <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
-          {['Sport Posters', 'Matchday Design', 'Social Rebrands', 'Player CVs'].map((d) => (
+          {[
+            "Sport Posters",
+            "Matchday Design",
+            "Social Rebrands",
+            "Player CVs",
+          ].map((d) => (
             <div key={d} className="flex items-center gap-3">
               <span className="w-0.5 h-8 bg-[#DC2626] shrink-0" />
               <span className="font-display text-base md:text-lg tracking-wide text-white/60">
@@ -107,10 +116,13 @@ export default function HomePage() {
       <section className="py-32 px-6">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="font-display text-4xl md:text-7xl tracking-wide text-white mb-6 leading-tight">
-            NEED SPORTS<br />DESIGN?
+            NEED SPORTS
+            <br />
+            DESIGN?
           </h2>
           <p className="text-[#6B7280] font-body mb-12 max-w-sm mx-auto leading-relaxed">
-            From matchday posters to full social identity — let's build something that makes your club look the part.
+            From matchday posters to full social identity — let's build
+            something that makes your club look the part.
           </p>
           <Link
             href="/contact"
@@ -121,5 +133,5 @@ export default function HomePage() {
         </div>
       </section>
     </>
-  )
+  );
 }

@@ -35,6 +35,17 @@ export default function Footer() {
               <circle cx="4" cy="4" r="2" />
             </svg>
           </a>
+          <a
+            href="https://www.behance.net/collinsgarba"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white/30 hover:text-[#DC2626] transition-colors"
+            aria-label="Behance"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M7.5 10.4c.9-.5 1.4-1.3 1.4-2.4 0-2.2-1.6-3.2-3.6-3.2H0v13.9h5.5c2.2 0 4.2-1 4.2-3.5 0-1.5-.7-2.5-2.2-2.8zM2.6 6.8h2.4c1 0 1.8.3 1.8 1.4 0 1-.7 1.5-1.7 1.5H2.6V6.8zm2.7 9.4H2.6v-3.4h2.8c1.2 0 1.9.5 1.9 1.7 0 1.2-.9 1.7-2 1.7zM24 13.5c0-3-1.7-5.4-4.8-5.4-3 0-5.1 2.3-5.1 5.3 0 3.1 2 5.3 5.1 5.3 2.4 0 4-1.1 4.7-3.2h-2.2c-.2.7-1.1 1.3-2.4 1.3-1.7 0-2.6-1-2.7-2.6h7.3c0-.2.1-.5.1-.7zm-7.4-1.2c.1-1.3 1-2.2 2.4-2.2 1.5 0 2.2 1 2.3 2.2h-4.7zM14.3 5h6.5v1.5h-6.5z" />
+            </svg>
+          </a>
         </div>
 
         <p className="font-body text-xs text-white/20 tracking-wider">
