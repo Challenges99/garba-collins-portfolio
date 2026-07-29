@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# raw, unoptimized photos staged for compression (see scripts/optimize-images.mjs)
+/raw-images/

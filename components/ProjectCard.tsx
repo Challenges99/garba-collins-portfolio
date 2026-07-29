@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import type { Project } from '@/lib/projects'
 
@@ -10,18 +11,29 @@ const categoryColors: Record<string, string> = {
 
 export default function ProjectCard({ project }: { project: Project }) {
   const gradient = categoryColors[project.category] ?? 'from-[#181717] to-[#0f0e0e]'
+  const hasCover = !project.cover.startsWith('/placeholder')
 
   return (
     <Link href={`/work/${project.slug}`} className="group block">
       {/* Thumbnail */}
-      <div className="relative aspect-video overflow-hidden mb-4 bg-[#181717]">
-        <div
-          className={`absolute inset-0 bg-gradient-to-br ${gradient} flex items-center justify-center transition-transform duration-500 group-hover:scale-105`}
-        >
-          <span className="font-display text-[clamp(20px,4vw,36px)] text-white/8 tracking-wider text-center px-4 leading-tight">
-            {project.title.toUpperCase()}
-          </span>
-        </div>
+      <div className="relative aspect-[4/5] overflow-hidden mb-4 bg-[#181717]">
+        {hasCover ? (
+          <Image
+            src={project.cover}
+            alt={project.title}
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+        ) : (
+          <div
+            className={`absolute inset-0 bg-gradient-to-br ${gradient} flex items-center justify-center transition-transform duration-500 group-hover:scale-105`}
+          >
+            <span className="font-display text-[clamp(20px,4vw,36px)] text-white/8 tracking-wider text-center px-4 leading-tight">
+              {project.title.toUpperCase()}
+            </span>
+          </div>
+        )}
         {/* Red hover tint */}
         <div className="absolute inset-0 bg-[#DC2626]/0 group-hover:bg-[#DC2626]/8 transition-colors duration-300" />
         {/* Category tag */}

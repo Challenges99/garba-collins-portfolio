@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { projects, getProject } from '@/lib/projects'
@@ -32,7 +33,21 @@ export default async function ProjectPage({
     <div>
       {/* Cover hero */}
       <div className="relative h-[65vh] min-h-[400px] bg-[#181717] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#1e1a1a] to-[#0f0e0e]" />
+        {project.heroImage ? (
+          <>
+            <Image
+              src={project.heroImage}
+              alt={project.title}
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-black/50" />
+          </>
+        ) : (
+          <div className="absolute inset-0 bg-gradient-to-br from-[#1e1a1a] to-[#0f0e0e]" />
+        )}
         <span className="relative font-display text-[clamp(48px,10vw,140px)] text-white/8 tracking-wider text-center px-6 leading-none">
           {project.title.toUpperCase()}
         </span>
@@ -73,7 +88,7 @@ export default async function ProjectPage({
             </div>
             <div>
               <p className="font-body text-xs tracking-widest uppercase text-white/20 mb-1">Status</p>
-              <p className="font-body text-sm text-[#F5F5F5]">Real assets coming soon</p>
+              <p className="font-body text-sm text-[#F5F5F5]">{project.status ?? 'Real assets coming soon'}</p>
             </div>
           </div>
         </div>
@@ -81,19 +96,31 @@ export default async function ProjectPage({
         {/* Supporting image grid */}
         <h2 className="font-display text-2xl tracking-wide text-white mb-8">PROJECT ASSETS</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-20">
-          {project.images.map((_, i) => (
-            <div
-              key={i}
-              className="aspect-square bg-[#181717] border border-white/5 flex flex-col items-center justify-center gap-3"
-            >
-              <span className="font-display text-4xl text-white/10 tracking-wider">
-                {(i + 1).toString().padStart(2, '0')}
-              </span>
-              <span className="font-body text-xs text-white/20 tracking-widest uppercase">
-                Asset placeholder
-              </span>
-            </div>
-          ))}
+          {project.images.map((src, i) =>
+            src.startsWith('/placeholder') ? (
+              <div
+                key={i}
+                className="aspect-[4/5] bg-[#181717] border border-white/5 flex flex-col items-center justify-center gap-3"
+              >
+                <span className="font-display text-4xl text-white/10 tracking-wider">
+                  {(i + 1).toString().padStart(2, '0')}
+                </span>
+                <span className="font-body text-xs text-white/20 tracking-widest uppercase">
+                  Asset placeholder
+                </span>
+              </div>
+            ) : (
+              <div key={i} className="relative aspect-[4/5] bg-[#181717] border border-white/5 overflow-hidden">
+                <Image
+                  src={src}
+                  alt={`${project.title} asset ${i + 1}`}
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover"
+                />
+              </div>
+            )
+          )}
         </div>
 
         {/* Bottom CTA */}

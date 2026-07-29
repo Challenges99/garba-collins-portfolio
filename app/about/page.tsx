@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -82,10 +83,14 @@ export default function AboutPage() {
             </div>
           </div>
           <div>
-            <div className="aspect-[4/5] bg-[#181717] border border-white/5 flex items-center justify-center">
-              <span className="font-display text-7xl text-white/10 tracking-widest">
-                GC
-              </span>
+            <div className="relative aspect-[4/5] bg-[#181717] border border-white/5 overflow-hidden">
+              <Image
+                src="/profile-picture.jpg"
+                alt="Garba Collins"
+                fill
+                className="object-cover"
+                priority
+              />
             </div>
           </div>
         </div>

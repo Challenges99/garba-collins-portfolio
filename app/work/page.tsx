@@ -14,7 +14,7 @@ export default function WorkPage() {
           <p className="text-[#DC2626] font-body text-xs tracking-[0.4em] uppercase mb-4">Portfolio</p>
           <h1 className="font-display text-5xl md:text-8xl tracking-wide text-white leading-none">WORK</h1>
         </div>
-        <WorkGrid projects={projects} />
+        <WorkGrid projects={projects.filter((p) => !p.hidden)} />
       </div>
     </div>
   )

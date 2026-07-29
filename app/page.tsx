@@ -3,10 +3,10 @@ import ProjectCard from "@/components/ProjectCard";
 import { projects } from "@/lib/projects";
 
 const featured = [
-  projects.find((p) => p.category === "Sport Posters")!,
-  projects.find((p) => p.category === "Matchday Design")!,
-  projects.find((p) => p.category === "Social Rebrand")!,
-  projects.find((p) => p.category === "Player Graphics")!,
+  projects.find((p) => p.category === "Sport Posters" && !p.hidden)!,
+  projects.find((p) => p.category === "Matchday Design" && !p.hidden)!,
+  projects.find((p) => p.category === "Social Rebrand" && !p.hidden)!,
+  projects.find((p) => p.category === "Player Graphics" && !p.hidden)!,
 ];
 
 export default function HomePage() {
