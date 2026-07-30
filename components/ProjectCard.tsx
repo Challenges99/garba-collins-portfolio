@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import type { Project } from '@/lib/projects'
+import { withBasePath } from '@/lib/basePath'
 
 const categoryColors: Record<string, string> = {
   'Sport Posters': 'from-[#1a0a0a] to-[#0f0e0e]',
@@ -19,7 +20,7 @@ export default function ProjectCard({ project }: { project: Project }) {
       <div className="relative aspect-[4/5] overflow-hidden mb-4 bg-[#181717]">
         {hasCover ? (
           <Image
-            src={project.cover}
+            src={withBasePath(project.cover)}
             alt={project.title}
             fill
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"

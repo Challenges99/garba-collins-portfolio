@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { projects, getProject } from '@/lib/projects'
+import { withBasePath } from '@/lib/basePath'
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }))
@@ -36,7 +37,7 @@ export default async function ProjectPage({
         {project.heroImage ? (
           <>
             <Image
-              src={project.heroImage}
+              src={withBasePath(project.heroImage)}
               alt={project.title}
               fill
               priority
@@ -112,7 +113,7 @@ export default async function ProjectPage({
             ) : (
               <div key={i} className="relative aspect-[4/5] bg-[#181717] border border-white/5 overflow-hidden">
                 <Image
-                  src={src}
+                  src={withBasePath(src)}
                   alt={`${project.title} asset ${i + 1}`}
                   fill
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"

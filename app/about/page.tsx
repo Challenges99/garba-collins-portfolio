@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
+import { withBasePath } from "@/lib/basePath";
 
 export const metadata: Metadata = {
   title: "About — Garba Collins",
@@ -85,7 +86,7 @@ export default function AboutPage() {
           <div>
             <div className="relative aspect-[4/5] bg-[#181717] border border-white/5 overflow-hidden">
               <Image
-                src="/profile-picture.jpg"
+                src={withBasePath("/profile-picture.jpg")}
                 alt="Garba Collins"
                 fill
                 className="object-cover"
