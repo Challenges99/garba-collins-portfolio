@@ -42,3 +42,6 @@ next-env.d.ts
 
 # raw, unoptimized photos staged for compression (see scripts/optimize-images.mjs)
 /raw-images/
+
+# raw drops of new work awaiting optimization/import into public/work (too large to push)
+/portfolio images/NEW PORTFOLIO WORK/
